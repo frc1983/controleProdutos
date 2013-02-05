@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controle", "Controle\Controle.csproj", "{4D67FFED-8CB5-460E-8585-20DFE5676C74}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C911245F-3B78-469C-84E1-C75DCC3B3C3B}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D67FFED-8CB5-460E-8585-20DFE5676C74}.Debug|x86.ActiveCfg = Debug|x86
+		{4D67FFED-8CB5-460E-8585-20DFE5676C74}.Debug|x86.Build.0 = Debug|x86
+		{4D67FFED-8CB5-460E-8585-20DFE5676C74}.Release|x86.ActiveCfg = Release|x86
+		{4D67FFED-8CB5-460E-8585-20DFE5676C74}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
