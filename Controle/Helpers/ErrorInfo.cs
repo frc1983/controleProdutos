@@ -13,5 +13,10 @@ namespace Controle.Helpers
 		{
 			MessageBox.Show(message, "Problemas na validação", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
 		}
+
+		public static System.Windows.MessageBoxResult ConfirmatioMessage(string message)
+		{
+			return MessageBox.Show(message, "Confirmação", System.Windows.MessageBoxButton.YesNo, System.Windows.MessageBoxImage.Question);
+		}
 	}
 }

@@ -15,6 +15,7 @@ using Controle.database;
 using ServiceStack.Redis;
 using Controle.Domain;
 using Xceed.Wpf.Toolkit;
+using WPF.MDI;
 
 namespace Controle
 {
@@ -40,26 +41,62 @@ namespace Controle
 
 		private void openManager_Click(object sender, RoutedEventArgs e)
 		{
-			ModalManageProduct.Content = new ManageProduct();
-			ModalManageProduct.Show();
+			WindowContainer.Children.Add(GenerateChild("Produtos"));
 		}
 
 		private void openManagerCategory_Click(object sender, RoutedEventArgs e)
 		{
-			ModalManageCategory.Content = new ManageCategory();
-			ModalManageCategory.Show();
+			WindowContainer.Children.Add(GenerateChild("Categorias"));
 		}
 
 		private void openManagerProvider_Click(object sender, RoutedEventArgs e)
 		{
-			ModalManageProvider.Content = new ManageProvider();
-			ModalManageProvider.Show();
+			WindowContainer.Children.Add(GenerateChild("Fornecedores"));
 		}
 
 		private void openManagerMake_Click(object sender, RoutedEventArgs e)
 		{
-			ModalManageMake.Content = new ManageMake();
-			ModalManageMake.Show();
+			WindowContainer.Children.Add(GenerateChild("Fabricantes"));
+		}
+
+		private MdiChild GenerateChild(string windowName)
+		{
+			UIElement windowContent = null;
+			switch (windowName)
+			{
+				case "Produtos" :
+					windowContent = new ManageProduct() { Visibility = Visibility.Visible };
+					break;
+				case "Categorias":
+					windowContent = new ManageCategory() { Visibility = Visibility.Visible };
+					break;
+				case "Fornecedores":
+					windowContent = new ManageProvider() { Visibility = Visibility.Visible };
+					break;
+				case "Fabricantes":
+					windowContent = new ManageMake() { Visibility = Visibility.Visible };
+					break;
+			}
+
+			var converter = new System.Windows.Media.BrushConverter();
+			var brush = (Brush)converter.ConvertFromString("#FFFFFFFF");
+			
+			return new MdiChild()
+			{
+				Title = "Gerenciamento de " + windowName,
+				Resizable = true,
+				MinimizeBox = false,
+				VerticalContentAlignment = System.Windows.VerticalAlignment.Top,
+				HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left,
+				Background = brush,
+				BorderBrush = brush,
+				Width = ((UserControl)windowContent).Width,
+				Height = ((UserControl)windowContent).Height,
+				MaxWidth = WindowContainer.ActualWidth,
+				MaxHeight = WindowContainer.ActualHeight,
+				BorderThickness = new Thickness(0),
+				Content = windowContent
+			};
 		}
 	}
 }

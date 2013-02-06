@@ -3,17 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" d:DesignHeight="532" d:DesignWidth="940">
+             mc:Ignorable="d" d:DesignHeight="532" d:DesignWidth="940" Margin="12">
     <Grid HorizontalAlignment="Stretch" Margin="12">
-		<Grid.RowDefinitions>
-			<RowDefinition Height="503*" />
-			<RowDefinition Height="23*" />
-		</Grid.RowDefinitions>
-		<DataGrid AutoGenerateColumns="True" Height="272" HorizontalAlignment="Center" Margin="0,236,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="916" HorizontalContentAlignment="Center" Grid.RowSpan="2" CanUserAddRows="False" CanUserDeleteRows="False" />
+		<DataGrid AutoGenerateColumns="True" HorizontalAlignment="Stretch" Margin="0,204,0,29" Name="dataGrid1" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" CanUserAddRows="False" CanUserDeleteRows="False" VerticalContentAlignment="Top" />
 		
 		<Button Content="Insert" Height="23" HorizontalAlignment="Left" Margin="565,172,0,0" Name="insert" VerticalAlignment="Top" Width="75" Click="insert_Click" TabIndex="11" />		
-		<Button Content="Search" Height="23" HorizontalAlignment="Left" Margin="565,201,0,0" Name="search" VerticalAlignment="Top" Width="75" Click="search_Click" TabIndex="12" />
-		<Button Content="DeleteAll" Height="23" HorizontalAlignment="Left" Margin="0,201,0,0" Name="deleteAll" VerticalAlignment="Top" Width="75" Click="deleteAll_Click" />
+		<Button Content="Search" Height="23" HorizontalAlignment="Left" Name="search" VerticalAlignment="Bottom" Width="75" Click="search_Click" TabIndex="12" Grid.Row="1" />
+		<Button Content="DeleteAll" Height="23" HorizontalAlignment="Right" Margin="841,0,0,0" Name="deleteAll" VerticalAlignment="Bottom" Width="75" Click="deleteAll_Click" Grid.Row="1" />
 		<Label Content="Produto:" Height="28" HorizontalAlignment="Left" Name="label1" VerticalAlignment="Top" />
 		<Label Content="Código:" Height="28" HorizontalAlignment="Left" Margin="0,34,0,0" Name="label2" VerticalAlignment="Top" />
 		<Label Content="Descrição:" Height="28" HorizontalAlignment="Left" Margin="0,68,0,0" Name="label3" VerticalAlignment="Top" />

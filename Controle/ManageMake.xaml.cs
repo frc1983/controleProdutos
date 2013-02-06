@@ -21,24 +21,89 @@ namespace Controle
 	/// </summary>
 	public partial class ManageMake : UserControl
 	{
+		Category _editing = null;
+
 		public ManageMake()
 		{
 			InitializeComponent();
+			ListaFabricantes();
 		}
 
 		private void btnSave_Click(object sender, RoutedEventArgs e)
 		{
-			var maker = new Make()
+			Make maker;
+
+			maker = new Make()
 			{
-				Id = Database.GetInstance.redisClient.As<Make>().GetNextSequence(),
 				Name = txtFabricante.Text
 			};
 
-			using (var trans = Database.GetInstance.redisClient.CreateTransaction())
-			{
-				trans.QueueCommand(r => r.Store<Make>(maker));
+			if (_editing == null)
+				maker.Id = Database.GetInstance.redisClient.As<Make>().GetNextSequence();
+			else
+				maker.Id = _editing.Id;
 
-				trans.Commit();
+			if (maker.Validate())
+			{
+				using (var trans = Database.GetInstance.redisClient.CreateTransaction())
+				{
+					trans.QueueCommand(r => r.Store<Make>(maker));
+
+					trans.Commit();
+				}
+			}
+
+			ListaFabricantes();
+			LimpaCampos();
+		}
+
+		private void btnDelete_Click(object sender, RoutedEventArgs e)
+		{
+			var fabricanteSelecionado = (Make)dataGrid1.SelectedItem;
+
+			if (fabricanteSelecionado != null)
+			{
+				MessageBoxResult result = Helpers.ErrorInfo.ConfirmatioMessage("Deseja excluir o registro?");
+				if (result == MessageBoxResult.Yes)
+				{
+					Database.GetInstance.redisClient.As<Make>().DeleteById(fabricanteSelecionado.Id);
+				}
+			}
+			ListaFabricantes();
+			LimpaCampos();
+		}
+
+		private void ListaFabricantes()
+		{
+			using (var mak = Database.GetInstance.redisClient.As<Make>())
+			{
+				var mpvm = new List<Make>();
+				foreach (Make item in mak.GetAll())
+					mpvm.Add(item);
+
+				dataGrid1.ItemsSource = mpvm;
+			}
+		}
+
+		private void LimpaCampos()
+		{
+			txtFabricante.Text = String.Empty;
+			_editing = null;
+		}
+
+		private void dataGrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			var fabricanteSelecionado = (Make)dataGrid1.SelectedItem;
+
+			if (fabricanteSelecionado != null)
+			{
+				txtFabricante.Text = fabricanteSelecionado.Name;
+
+				_editing = new Category
+				{
+					Id = fabricanteSelecionado.Id,
+					Name = txtFabricante.Text,
+				};
 			}
 		}
 	}

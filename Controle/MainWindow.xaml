@@ -2,10 +2,15 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:wpfx="http://schemas.xceed.com/wpf/xaml/toolkit"
+		xmlns:mdi="clr-namespace:WPF.MDI;assembly=WPF.MDI"
 		Closed="OnApplicationExit"
         Title="Gestão de Produtos" Height="600" Width="800" WindowState="Maximized" WindowStyle="ToolWindow">
 	<Grid>
-		<Menu Height="25" HorizontalAlignment="Stretch" Name="menu1" VerticalAlignment="Top">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="23" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Menu Height="25" HorizontalAlignment="Stretch" Name="menu1" VerticalAlignment="Top" Grid.Row="0">
 			<MenuItem Header="Abrir">
 				<MenuItem Header="Manager" Click="openManager_Click" />
 			</MenuItem>
@@ -15,33 +20,6 @@
 				<MenuItem Header="Fabricantes"  Click="openManagerMake_Click" />
 			</MenuItem>
 		</Menu>
-		<wpfx:ChildWindow Name="ModalManageProduct" HorizontalAlignment="Stretch" Margin="0,23,0,0" VerticalAlignment="Stretch" BorderBrush="Red" HorizontalContentAlignment="Center" UseLayoutRounding="False">
-			<wpfx:ChildWindow.Caption >
-				<WrapPanel Orientation="Horizontal">
-					<TextBlock Text="Gerenciar Produtos" FontSize="14" Foreground="Black"></TextBlock>
-				</WrapPanel>
-			</wpfx:ChildWindow.Caption>
-		</wpfx:ChildWindow>
-		<wpfx:ChildWindow Name="ModalManageCategory" HorizontalAlignment="Stretch" Margin="0,23,0,0" VerticalAlignment="Stretch" BorderBrush="Red" HorizontalContentAlignment="Center" UseLayoutRounding="False">
-			<wpfx:ChildWindow.Caption >
-				<WrapPanel Orientation="Horizontal">
-					<TextBlock Text="Gerenciar Categorias" FontSize="14" Foreground="Black"></TextBlock>
-				</WrapPanel>
-			</wpfx:ChildWindow.Caption>
-		</wpfx:ChildWindow>
-		<wpfx:ChildWindow Name="ModalManageProvider" HorizontalAlignment="Stretch" Margin="0,23,0,0" VerticalAlignment="Stretch" BorderBrush="Red" HorizontalContentAlignment="Center" UseLayoutRounding="False">
-			<wpfx:ChildWindow.Caption >
-				<WrapPanel Orientation="Horizontal">
-					<TextBlock Text="Gerenciar Fornecedores" FontSize="14" Foreground="Black"></TextBlock>
-				</WrapPanel>
-			</wpfx:ChildWindow.Caption>
-		</wpfx:ChildWindow>
-		<wpfx:ChildWindow Name="ModalManageMake" HorizontalAlignment="Stretch" Margin="0,23,0,0" VerticalAlignment="Stretch" BorderBrush="Red" HorizontalContentAlignment="Center" UseLayoutRounding="False">
-			<wpfx:ChildWindow.Caption >
-				<WrapPanel Orientation="Horizontal">
-					<TextBlock Text="Gerenciar Fabricantes" FontSize="14" Foreground="Black"></TextBlock>
-				</WrapPanel>
-			</wpfx:ChildWindow.Caption>
-		</wpfx:ChildWindow>
+		<mdi:MdiContainer Grid.Row="1" x:Name="WindowContainer"></mdi:MdiContainer>
 	</Grid>
 </Window>

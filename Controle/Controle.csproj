@@ -66,6 +66,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WPF.MDI">
+      <HintPath>..\packages\WPF.MDI.dll</HintPath>
+    </Reference>
     <Reference Include="WPFToolkit.Extended">
       <HintPath>..\packages\Extended.Wpf.Toolkit.1.8.0\lib\net40\WPFToolkit.Extended.dll</HintPath>
     </Reference>

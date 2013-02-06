@@ -77,7 +77,11 @@ namespace Controle
 
 			if (categoriaSelecionada != null)
 			{
-				Database.GetInstance.redisClient.As<Category>().DeleteById(categoriaSelecionada.Id);
+				MessageBoxResult result = Helpers.ErrorInfo.ConfirmatioMessage("Deseja excluir o registro?");
+				if (result == MessageBoxResult.Yes)
+				{
+					Database.GetInstance.redisClient.As<Category>().DeleteById(categoriaSelecionada.Id);
+				}
 			}
 			ListaCategorias();
 			LimpaCampos();

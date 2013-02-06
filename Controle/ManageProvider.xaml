@@ -3,10 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" d:DesignHeight="171" d:DesignWidth="304">
+             mc:Ignorable="d" d:DesignHeight="362" d:DesignWidth="308" Margin="12">
 	<Grid HorizontalAlignment="Stretch" Margin="12">
 		<Label Content="Fornecedor:" Height="28" HorizontalAlignment="Left" Name="label1" VerticalAlignment="Top" />
 		<TextBox Height="23" HorizontalAlignment="Left" Margin="79,2,0,0" Name="txtFornecedor" VerticalAlignment="Top" Width="200" />
-		<Button Content="Salvar" Height="23" HorizontalAlignment="Left" Margin="205,124,0,0" Name="btnSave" VerticalAlignment="Top" Width="75" Click="btnSave_Click" />
+		<Button Content="Salvar" Height="23" HorizontalAlignment="Left" Margin="204,31,0,0" Name="btnSave" VerticalAlignment="Top" Width="75" Click="btnSave_Click" />
+		<DataGrid AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ItemsSource="{Binding}" Margin="0,60,0,29" Name="dataGrid1" SelectionMode="Single" VerticalAlignment="Stretch" SelectionChanged="dataGrid1_SelectionChanged" />
+		<Button Content="Remover selecionado" Height="23" HorizontalAlignment="Right" Name="btnDelete" VerticalAlignment="Bottom" Width="123" Click="btnDelete_Click" />
 	</Grid>
 </UserControl>
