@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="redisPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\\Users\\fabiocosta\\Desktop\\Programa\\packages\\RedisServer\\64bit\\redis-server.exe</Value>
+      <Value Profile="(Default)">C:\\RedisServer\\redis-server.exe</Value>
     </Setting>
     <Setting Name="redisLocal" Type="System.String" Scope="User">
       <Value Profile="(Default)">localhost</Value>

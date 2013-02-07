@@ -25,8 +25,7 @@ namespace Controle.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\\\Users\\\\fabiocosta\\\\Desktop\\\\Programa\\\\packages\\\\RedisServer\\\\64bit\\\\redis-ser" +
-            "ver.exe")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\\\RedisServer\\\\redis-server.exe")]
         public string redisPath {
             get {
                 return ((string)(this["redisPath"]));

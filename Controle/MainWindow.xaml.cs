@@ -16,13 +16,14 @@ using ServiceStack.Redis;
 using Controle.Domain;
 using Xceed.Wpf.Toolkit;
 using WPF.MDI;
+using MahApps.Metro.Controls;
 
 namespace Controle
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class MainWindow : MetroWindow
 	{
 		public MainWindow()
 		{
@@ -81,18 +82,20 @@ namespace Controle
 			}
 
 			var converter = new System.Windows.Media.BrushConverter();
-			var brush = (Brush)converter.ConvertFromString("#FFFFFFFF");
+			var white = (Brush)converter.ConvertFromString("#FFFFFFFF");
+			var black = (Brush)converter.ConvertFromString("#FF000000");
 			
 			return new MdiChild()
 			{
-				Title = "Gerenciamento de " + windowName,
+				Title = "GERENCIAMENTO DE " + windowName.ToUpper(),
+				Foreground = white,
 				Resizable = true,
 				MinimizeBox = false,
 				WindowState = windowState,
 				VerticalContentAlignment = System.Windows.VerticalAlignment.Top,
 				HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left,
-				Background = brush,
-				BorderBrush = brush,
+				Background = white,
+				BorderBrush = white,
 				Width = ((UserControl)windowContent).Width,
 				Height = ((UserControl)windowContent).Height,
 				MaxWidth = WindowContainer.ActualWidth,

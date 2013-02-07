@@ -2,5 +2,13 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ReferencePath>C:\Controle\packages\ServiceStack.Common.3.9.35\;C:\Controle\packages\Redis.Client.Core.1.0.0\;C:\Controle\packages\ServiceStack.Redis.3.9.35\;C:\Controle\packages\ServiceStack.Text.3.9.35\</ReferencePath>
+    <PublishUrlHistory>C:\Users\fabiocosta\Desktop\Controle\|publish\</PublishUrlHistory>
+    <InstallUrlHistory />
+    <SupportUrlHistory />
+    <UpdateUrlHistory />
+    <BootstrapperUrlHistory />
+    <ErrorReportUrlHistory />
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
 </Project>
