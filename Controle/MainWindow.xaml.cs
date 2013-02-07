@@ -62,6 +62,8 @@ namespace Controle
 		private MdiChild GenerateChild(string windowName)
 		{
 			UIElement windowContent = null;
+			System.Windows.WindowState windowState = System.Windows.WindowState.Normal;
+
 			switch (windowName)
 			{
 				case "Produtos" :
@@ -86,6 +88,7 @@ namespace Controle
 				Title = "Gerenciamento de " + windowName,
 				Resizable = true,
 				MinimizeBox = false,
+				WindowState = windowState,
 				VerticalContentAlignment = System.Windows.VerticalAlignment.Top,
 				HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left,
 				Background = brush,

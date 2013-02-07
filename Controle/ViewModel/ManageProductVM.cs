@@ -18,7 +18,7 @@ namespace Controle.ViewModel
 		public decimal UnityValue { get { return p.UnityValue; } }
 		public decimal WeightValue { get { return p.WeightValue; } }
 		public string Category { get { return p.Category.Name; } }
-		public float Weight { get { return p.Weight; } }
+		public double Weight { get { return p.Weight; } }
 		public string Make { get { return p.Make.Name; } }
 		public string Provider { get { return p.Provider.Name; } }
 		public long EAN { get { return p.EAN; } }

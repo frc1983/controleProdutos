@@ -22,12 +22,20 @@ namespace Controle
 	/// </summary>
 	public partial class ManageProduct : UserControl
 	{
+		Product _editing = null;
+
 		public ManageProduct()
 		{
 			InitializeComponent();
 			LoadCategories();
 			LoadMaker();
 			LoadProviders();
+			ListaProdutos();
+		}
+
+		private void ListaProdutos()
+		{
+			search_Click(null, null);
 		}
 
 		private void LoadCategories()
@@ -81,33 +89,125 @@ namespace Controle
 			}
 		}
 
-		private void insert_Click(object sender, RoutedEventArgs e)
+		private void btnSave_Click(object sender, RoutedEventArgs e)
 		{
-			for (var i = 1; i <= 1000; i++)
-			{
-				var car = new Product()
-				{
-					Id = Database.GetInstance.redisClient.As<Product>().GetNextSequence(),
-					Name = "Titulo" + i,
-					Code = i*1000,
-					Description = "Descricao" + i,
-					Quantity = i,
-					UnityValue = (decimal)10.32,
-					WeightValue = (decimal)10.82,
-					Category = Database.GetInstance.redisClient.As<Category>().GetById(comboCategoria.SelectedValue),
-					Weight = 1.00F,
-					Make = Database.GetInstance.redisClient.As<Make>().GetById(comboFabricante.SelectedValue),
-					Provider = Database.GetInstance.redisClient.As<Provider>().GetById(comboFornecedor.SelectedValue),
-					EAN = 123456789,
-					LastModification = DateTime.Now
-				};
+			Product product = null;
 
+			long code;
+			long ean;
+			long.TryParse(txtCodigo.Text, out code);
+			long.TryParse(txtCodigoBarras.Text, out ean);
+
+			product = new Product()
+			{
+				Id = Database.GetInstance.redisClient.As<Product>().GetNextSequence(),
+				Name = txtProduto.Text,
+				Code = code,
+				Description = txtDescricao.Text,
+				Quantity = (String.IsNullOrEmpty(txtQuantidade.Text)) ? 0 : Convert.ToInt32(txtQuantidade.Text),
+				UnityValue = (String.IsNullOrEmpty(txtValorUnitario.Text)) ? 0 : Convert.ToDecimal(txtValorUnitario.Text),
+				WeightValue = (String.IsNullOrEmpty(txtValorQuilo.Text)) ? 0 : Convert.ToDecimal(txtValorQuilo.Text),
+				Category = Database.GetInstance.redisClient.As<Category>().GetById(comboCategoria.SelectedValue),
+				Weight = (String.IsNullOrEmpty(txtPeso.Text)) ? 0 : Convert.ToDouble(txtPeso.Text),
+				Make = Database.GetInstance.redisClient.As<Make>().GetById(comboFabricante.SelectedValue),
+				Provider = Database.GetInstance.redisClient.As<Provider>().GetById(comboFornecedor.SelectedValue),
+				EAN = ean,
+				LastModification = DateTime.Now
+			};
+
+			if (_editing == null)
+				product.Id = Database.GetInstance.redisClient.As<Product>().GetNextSequence();
+			else
+				product.Id = _editing.Id;
+
+			if (product.Validate())
+			{
 				using (var trans = Database.GetInstance.redisClient.CreateTransaction())
 				{
-					trans.QueueCommand(r => r.Store<Product>(car));
+					trans.QueueCommand(r => r.Store<Product>(product));
 
 					trans.Commit();
 				}
+				ListaProdutos();
+				LimpaCampos();
+			}			
+		}
+
+		private void LimpaCampos()
+		{
+			txtProduto.Text = String.Empty;
+			txtCodigo.Text = String.Empty;
+			txtDescricao.Text = String.Empty;
+			txtQuantidade.Text = String.Empty;
+			txtValorUnitario.Text = String.Empty;
+			txtValorQuilo.Text = String.Empty;
+			txtPeso.Text = String.Empty;
+			txtCodigoBarras.Text = String.Empty;
+			comboFabricante.SelectedIndex = -1;
+			comboFornecedor.SelectedIndex = -1;
+			comboCategoria.SelectedIndex = -1;
+			_editing = null;
+		}
+
+		private void btnDelete_Click(object sender, RoutedEventArgs e)
+		{
+			var produtoSelecionado = (ManageProductVM)dataGrid1.SelectedItem;
+
+			if (produtoSelecionado != null)
+			{
+				MessageBoxResult result = Helpers.ErrorInfo.ConfirmatioMessage("Deseja excluir o registro?");
+				if (result == MessageBoxResult.Yes)
+				{
+					Database.GetInstance.redisClient.As<Product>().DeleteById(produtoSelecionado.Id);
+				}
+			}
+			ListaProdutos();
+			LimpaCampos();
+		}
+
+		private void dataGrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			var produtoSelecionado = (ManageProductVM)dataGrid1.SelectedItem;
+
+			if (produtoSelecionado != null)
+			{
+				txtProduto.Text = produtoSelecionado.Name;
+				txtCodigo.Text = produtoSelecionado.Code.ToString();
+				txtDescricao.Text = produtoSelecionado.Description;
+				txtQuantidade.Text = produtoSelecionado.Quantity.ToString();
+				txtValorUnitario.Text = produtoSelecionado.UnityValue.ToString();
+				txtValorQuilo.Text = produtoSelecionado.WeightValue.ToString();
+				txtPeso.Text = produtoSelecionado.Weight.ToString();
+				txtCodigoBarras.Text = produtoSelecionado.EAN.ToString();
+
+				foreach (ComboBoxItem item in comboFabricante.Items)
+					if (item.Content.Equals(produtoSelecionado.Make))
+						comboFabricante.SelectedItem = item;
+
+				foreach (ComboBoxItem item in comboFornecedor.Items)
+					if (item.Content.Equals(produtoSelecionado.Provider))
+						comboFornecedor.SelectedItem = item;
+
+				foreach (ComboBoxItem item in comboCategoria.Items)
+					if (item.Content.Equals(produtoSelecionado.Category))
+						comboCategoria.SelectedItem = item;
+
+				_editing = new Product
+				{
+					Id = produtoSelecionado.Id,
+					Name = produtoSelecionado.Name,
+					Code = produtoSelecionado.Code,
+					Description = produtoSelecionado.Description,
+					Quantity = produtoSelecionado.Quantity,
+					UnityValue = produtoSelecionado.UnityValue,
+					WeightValue = produtoSelecionado.WeightValue,
+					Category = Database.GetInstance.redisClient.As<Category>().GetById(comboCategoria.SelectedValue),
+					Weight = produtoSelecionado.Weight,
+					Make = Database.GetInstance.redisClient.As<Make>().GetById(comboFabricante.SelectedValue),
+					Provider = Database.GetInstance.redisClient.As<Provider>().GetById(comboFornecedor.SelectedValue),
+					EAN = produtoSelecionado.EAN,
+					LastModification = DateTime.Now
+				};
 			}
 		}
 
@@ -126,6 +226,12 @@ namespace Controle
 		private void deleteAll_Click(object sender, RoutedEventArgs e)
 		{
 			Database.GetInstance.redisClient.DeleteAll<Product>();
+		}
+
+		private string selectCombo(object classe, string valorSelecionado)
+		{
+			Database.GetInstance.redisClient.As<Make>().ContainsKey(valorSelecionado);
+			return "";
 		}
 	}
 }

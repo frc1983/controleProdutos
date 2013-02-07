@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ReferencePath>C:\Controle\packages\ServiceStack.Common.3.9.35\;C:\Controle\packages\Redis.Client.Core.1.0.0\;C:\Controle\packages\ServiceStack.Redis.3.9.35\;C:\Controle\packages\ServiceStack.Text.3.9.35\</ReferencePath>
+  </PropertyGroup>
+</Project>

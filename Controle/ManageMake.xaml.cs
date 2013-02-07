@@ -51,10 +51,9 @@ namespace Controle
 
 					trans.Commit();
 				}
-			}
-
-			ListaFabricantes();
-			LimpaCampos();
+				ListaFabricantes();
+				LimpaCampos();
+			}			
 		}
 
 		private void btnDelete_Click(object sender, RoutedEventArgs e)

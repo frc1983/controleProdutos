@@ -65,10 +65,9 @@ namespace Controle
 					trans.QueueCommand(r => r.Store<Category>(category));
 					trans.Commit();
 				}
-			}
-
-			ListaCategorias();
-			LimpaCampos();
+				ListaCategorias();
+				LimpaCampos();
+			}			
 		}
 
 		private void btnDelete_Click(object sender, RoutedEventArgs e)
