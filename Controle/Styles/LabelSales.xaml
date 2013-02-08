@@ -13,7 +13,7 @@
                                Foreground="{TemplateBinding Foreground}">
 							<AccessText Text="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}"
                                         TextWrapping="Wrap"
-                                        FontSize="16"
+                                        FontSize="18"
                                         Margin="3" />
 						</Label>
 					</Grid>

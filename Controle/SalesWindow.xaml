@@ -3,8 +3,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:behaviors="clr-namespace:Controle.Helpers"
-		Closed="OnApplicationExit"
-        Title="Vendas" Height="600" Width="800" WindowState="Maximized" ShowMinButton="False" ShowMaxRestoreButton="False">
+        Title="Vendas" Height="600" Width="800" WindowState="Maximized" ResizeMode="NoResize" ShowMinButton="False" ShowMaxRestoreButton="False">
 	<Window.Resources>
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>

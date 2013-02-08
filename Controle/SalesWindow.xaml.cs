@@ -43,12 +43,11 @@ namespace Controle
 			this.DataContext = listaProdutos;
 		}
 
-		private void OnApplicationExit(object sender, EventArgs e)
+		private void OnSalesApplicationExit(object sender, EventArgs e)
 		{
 			try
 			{
 				//Database.GetInstance.redisClient.SaveAsync();
-				//Database.GetInstance.closeClient();
 			}
 			catch (RedisException ex) { throw new RedisException(ex.Message); }
 		}
