@@ -24,6 +24,7 @@ C:\Controle\Controle\obj\x86\Release\ManageProvider.baml
 C:\Controle\Controle\obj\x86\Release\MainWindow.baml
 C:\Controle\Controle\obj\x86\Release\ManageCategory.baml
 C:\Controle\Controle\obj\x86\Release\ManageProduct.baml
+C:\Controle\Controle\obj\x86\Release\Resources\Icons.baml
 C:\Controle\Controle\obj\x86\Release\ManageMake.g.cs
 C:\Controle\Controle\obj\x86\Release\ManageProvider.g.cs
 C:\Controle\Controle\obj\x86\Release\MainWindow.g.cs

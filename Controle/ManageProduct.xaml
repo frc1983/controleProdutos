@@ -5,7 +5,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" d:DesignHeight="532" d:DesignWidth="940" Margin="12">
-    <Grid HorizontalAlignment="Stretch" Margin="12">
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="/Resources/Icons.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</UserControl.Resources>
+	<Grid HorizontalAlignment="Stretch" Margin="12">
 		<DataGrid AutoGenerateColumns="True" HorizontalAlignment="Stretch" Margin="0,204,0,29" Name="dataGrid1" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" CanUserAddRows="False" CanUserDeleteRows="False" VerticalContentAlignment="Top" MinHeight="300" SelectionChanged="dataGrid1_SelectionChanged" />
 
 		<Button Content="SALVAR" Height="23" HorizontalAlignment="Left" VerticalContentAlignment="Center" Margin="800,147,0,0" Name="btnSave" VerticalAlignment="Top" Width="75" Click="btnSave_Click" TabIndex="11" />
@@ -30,6 +37,13 @@
 		<TextBox Height="81" HorizontalAlignment="Left" Margin="675,34,0,0" Name="txtDescricao" VerticalAlignment="Top" Width="200" TabIndex="5" AcceptsReturn="True" />
 		<TextBox Height="23" HorizontalAlignment="Left" Margin="675,2,0,0" Name="txtCodigo" VerticalAlignment="Top" Width="200" TabIndex="2" />
 		<TextBox Height="23" HorizontalAlignment="Left" Margin="110,2,0,0" Name="txtProduto" VerticalAlignment="Top" Width="200" TabIndex="0" />
+		<Button Height="21" Width="35" VerticalAlignment="Top" Margin="274,148,0,0" HorizontalAlignment="Left" ToolTip="Ler código com leitora">
+			<Rectangle Width="30" Height="15">
+				<Rectangle.Fill>
+					<VisualBrush Stretch="Fill" Visual="{StaticResource appbar_barcode}" />
+				</Rectangle.Fill>
+			</Rectangle>
+		</Button>
 		<ComboBox Height="23" HorizontalAlignment="Left" Margin="110,60,0,0" Name="comboCategoria" VerticalAlignment="Top" Width="200" TabIndex="6" SelectedValuePath="Tag" SelectedIndex="-1" />
 		<ComboBox Height="23" HorizontalAlignment="Left" Margin="110,89,0,0" Name="comboFornecedor" TabIndex="8" VerticalAlignment="Top" Width="200" SelectedValuePath="Tag" SelectedIndex="-1" />
 		<ComboBox Height="23" HorizontalAlignment="Left" Margin="110,118,0,0" Name="comboFabricante" TabIndex="9" VerticalAlignment="Top" Width="200" SelectedValuePath="Tag" />
