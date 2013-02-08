@@ -1,0 +1,70 @@
+﻿<Controls:MetroWindow x:Class="Controle.SalesWindow"
+		xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:behaviors="clr-namespace:Controle.Helpers"
+		Closed="OnApplicationExit"
+        Title="Vendas" Height="600" Width="800" WindowState="Maximized" ShowMinButton="False" ShowMaxRestoreButton="False">
+	<Window.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml" />
+				<ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+				<ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+				<ResourceDictionary Source="/Resources/Icons.xaml" />
+				<ResourceDictionary Source="/Styles/LabelSales.xaml" />
+				<ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+				<ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Window.Resources>
+	<Grid>
+		<Button Height="21" Width="35" VerticalAlignment="Top" Margin="12,12,0,0" HorizontalAlignment="Left" ToolTip="Ler código com leitora"
+				Click="ReadProductCode_Click">
+			<Rectangle Width="30" Height="15">
+				<Rectangle.Fill>
+					<VisualBrush Stretch="Fill" Visual="{StaticResource appbar_barcode}" />
+				</Rectangle.Fill>
+			</Rectangle>
+		</Button>
+		<Label Content="Product Name" HorizontalAlignment="Left" Name="lblName" VerticalAlignment="Top" Style="{DynamicResource LabelSales}" Margin="12,43,0,0" />
+		<Label Content="Maker Name" HorizontalAlignment="Left" Name="lblMaker" VerticalAlignment="Top" Style="{DynamicResource LabelSales}" Margin="12,86,0,0" />
+		<Label Content="Provider Name" HorizontalAlignment="Left" Name="lblProvider" VerticalAlignment="Top" Style="{DynamicResource LabelSales}" Margin="12,129,0,0" />
+		<Label Content="U. Value" HorizontalAlignment="Left" Name="lblUnityValue" VerticalAlignment="Top" Style="{DynamicResource LabelSales}" Margin="345,4,0,0" />
+		<Label Content="W. Value" HorizontalAlignment="Left" Name="lblWeightValue" VerticalAlignment="Top" Style="{DynamicResource LabelSales}" Margin="533,4,0,0" />
+		<TextBox HorizontalAlignment="Left" Name="txtQuantity" VerticalAlignment="Top" Margin="177,12,0,0" Width="36" TextChanged="txtQuantity_TextChanged" />
+		<Label Content="T" HorizontalAlignment="Left" Name="lblTotalProduto" VerticalAlignment="Top" Style="{DynamicResource LabelSales}" Margin="711,4,0,0" />
+		<Label Content="Total:" HorizontalAlignment="Left" Name="lblTotal" VerticalAlignment="Top" Style="{DynamicResource LabelSales}" Margin="660,4,0,0" />
+		<Label Content="EAN" HorizontalAlignment="Left" Name="lblEAN" VerticalAlignment="Top" Style="{DynamicResource LabelSales}" Margin="53,7,0,0" />
+		<ListView Margin="17,172,0,39" Name="listCompras" MinHeight="350" MinWidth="745"
+				 behaviors:GridViewColumnResize.Enabled="True"
+				 ItemsSource="{Binding}"
+				 AlternationCount="2">
+			<ListView.ItemContainerStyle>
+				<Style TargetType="ListViewItem">
+					<Setter Property="HorizontalContentAlignment" Value="Center" />
+					<Setter Property="FontSize" Value="14" />
+					<Style.Triggers>
+						<Trigger Property="ItemsControl.AlternationIndex" Value="1">
+							<Setter Property="Background" Value="#FFF0F0F0"/>
+						</Trigger>
+					</Style.Triggers>
+				</Style>
+			</ListView.ItemContainerStyle>
+			<ListView.View>
+				<GridView>
+					<GridViewColumn Header="Código" Width="55" DisplayMemberBinding="{Binding Codigo}" />
+					<GridViewColumn Header="Produto" Width="285" DisplayMemberBinding="{Binding Produto}" behaviors:GridViewColumnResize.Width="*" />
+					<GridViewColumn Header="Quantidade" Width="85" DisplayMemberBinding="{Binding Quantidade}" />
+					<GridViewColumn Header="Valor Unidade" Width="103" DisplayMemberBinding="{Binding TextoValorUnidade}" />
+					<GridViewColumn Header="Valor do Kg" Width="87" DisplayMemberBinding="{Binding TextoValorPeso}" />
+					<GridViewColumn Header="Total do produto" Width="Auto" DisplayMemberBinding="{Binding TextoTotalProduto}" />
+				</GridView>
+			</ListView.View>
+		</ListView>
+		<Label Content="Total" Margin="0,0,12,4" Name="lblValorTotalGasto" Style="{DynamicResource LabelSales}" VerticalAlignment="Bottom" HorizontalAlignment="Right" HorizontalContentAlignment="Stretch" />
+		<Label Content="Total gasto:" Margin="0,0,130,4" Name="lblTotalGasto" Style="{DynamicResource LabelSales}" Height="37" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100" />
+		<Label Content="Valor Unitário:" HorizontalAlignment="Left" Margin="219,4,0,0" Name="label1" Style="{DynamicResource LabelSales}" VerticalAlignment="Top" />
+		<Label Content="Valor Kg:" HorizontalAlignment="Left" Margin="448,4,0,0" Name="label2" Style="{DynamicResource LabelSales}" VerticalAlignment="Top" />
+	</Grid>
+</Controls:MetroWindow>

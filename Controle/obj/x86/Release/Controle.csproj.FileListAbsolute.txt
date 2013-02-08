@@ -19,12 +19,15 @@ C:\Controle\Controle\bin\Release\ServiceStack.Interfaces.xml
 C:\Controle\Controle\bin\Release\ServiceStack.Redis.xml
 C:\Controle\Controle\bin\Release\ServiceStack.Text.xml
 C:\Controle\Controle\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Controle\Controle\obj\x86\Release\SalesWindow.baml
 C:\Controle\Controle\obj\x86\Release\ManageMake.baml
 C:\Controle\Controle\obj\x86\Release\ManageProvider.baml
 C:\Controle\Controle\obj\x86\Release\MainWindow.baml
 C:\Controle\Controle\obj\x86\Release\ManageCategory.baml
 C:\Controle\Controle\obj\x86\Release\ManageProduct.baml
 C:\Controle\Controle\obj\x86\Release\Resources\Icons.baml
+C:\Controle\Controle\obj\x86\Release\Styles\LabelSales.baml
+C:\Controle\Controle\obj\x86\Release\SalesWindow.g.cs
 C:\Controle\Controle\obj\x86\Release\ManageMake.g.cs
 C:\Controle\Controle\obj\x86\Release\ManageProvider.g.cs
 C:\Controle\Controle\obj\x86\Release\MainWindow.g.cs
@@ -40,3 +43,5 @@ C:\Controle\Controle\obj\x86\Release\Controle.exe.manifest
 C:\Controle\Controle\obj\x86\Release\Controle.application
 C:\Controle\Controle\obj\x86\Release\Controle.exe
 C:\Controle\Controle\obj\x86\Release\Controle.pdb
+C:\Controle\Controle\obj\x86\Release\GeneratedInternalTypeHelper.g.cs
+C:\Controle\Controle\obj\x86\Release\Controle_MarkupCompile.lref

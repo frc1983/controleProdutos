@@ -17,6 +17,7 @@ using Controle.Domain;
 using Xceed.Wpf.Toolkit;
 using WPF.MDI;
 using MahApps.Metro.Controls;
+using System.Threading;
 
 namespace Controle
 {
@@ -28,6 +29,8 @@ namespace Controle
 		public MainWindow()
 		{
 			InitializeComponent();
+
+			Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo("pt-BR");
 		}
 
 		private void OnApplicationExit(object sender, EventArgs e)
@@ -103,6 +106,11 @@ namespace Controle
 				BorderThickness = new Thickness(0),
 				Content = windowContent
 			};
+		}
+
+		private void openSalesWindow_Click(object sender, RoutedEventArgs e)
+		{
+			new SalesWindow().ShowDialog();
 		}
 	}
 }

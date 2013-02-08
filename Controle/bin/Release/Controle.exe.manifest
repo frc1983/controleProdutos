@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Controle.exe" size="440320">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Controle.exe" size="457216">
       <assemblyIdentity name="Controle" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ANDo9Pfp/FBDhAF40JbEiOMPy4A=</dsig:DigestValue>
+        <dsig:DigestValue>AlCzbEanCHEBkMelI3031VQksoI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

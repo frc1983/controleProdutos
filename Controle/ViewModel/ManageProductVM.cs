@@ -15,8 +15,8 @@ namespace Controle.ViewModel
 		public string Name { get { return p.Name; } }
 		public string Description { get { return p.Description; } }
 		public int Quantity { get { return p.Quantity; } }
-		public decimal UnityValue { get { return p.UnityValue; } }
-		public decimal WeightValue { get { return p.WeightValue; } }
+		public decimal? UnityValue { get { return p.UnityValue; } }
+		public decimal? WeightValue { get { return p.WeightValue; } }
 		public string Category { get { return p.Category.Name; } }
 		public double Weight { get { return p.Weight; } }
 		public string Make { get { return p.Make.Name; } }

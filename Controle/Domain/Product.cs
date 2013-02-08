@@ -13,8 +13,8 @@ namespace Controle.Domain
 		public string Name { get; set; }
 		public string Description { get; set; }
 		public int Quantity { get; set; }
-		public decimal UnityValue { get; set; }
-		public decimal WeightValue { get; set; }
+		public decimal? UnityValue { get; set; }
+		public decimal? WeightValue { get; set; }
 		public Category Category { get; set; }
 		public double Weight { get; set; }
 		public Make Make { get; set; }
@@ -39,11 +39,11 @@ namespace Controle.Domain
 			if (this.Quantity <= 0)
 				error += "- A quantidade deste produto deve ser inserido \r\n";
 
-			if (this.UnityValue <= 0)
-				error += "- O valor unitário do produto deve ser inserido \r\n";
+			if (this.UnityValue <= 0 && this.WeightValue <= 0)
+				error += "- O valor unitário ou valor por quilo do produto deve ser inserido \r\n";
 
-			if (this.WeightValue <= 0)
-				error += "- O valor por peso do produto deve ser inserido \r\n";
+			//if (this.WeightValue <= 0)
+			//    error += "- O valor por peso do produto deve ser inserido \r\n";
 
 			if (this.Category == null)
 				error += "- Uma categoria do produto deve ser selecionada \r\n";

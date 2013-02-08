@@ -31,6 +31,9 @@
 				<MenuItem Header="Fornecedores"  Click="openManagerProvider_Click" />
 				<MenuItem Header="Fabricantes"  Click="openManagerMake_Click" />
 			</MenuItem>
+			<MenuItem Header="Cadastrar Vendas">
+				<MenuItem Header="Exibir tela de vendas" Click="openSalesWindow_Click" />
+			</MenuItem>
 		</Menu>
 		<mdi:MdiContainer Grid.Row="1" x:Name="WindowContainer"></mdi:MdiContainer>
 	</Grid>
