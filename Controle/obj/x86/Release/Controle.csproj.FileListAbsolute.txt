@@ -18,7 +18,6 @@ C:\Controle\Controle\bin\Release\ServiceStack.Common.xml
 C:\Controle\Controle\bin\Release\ServiceStack.Interfaces.xml
 C:\Controle\Controle\bin\Release\ServiceStack.Redis.xml
 C:\Controle\Controle\bin\Release\ServiceStack.Text.xml
-C:\Controle\Controle\obj\x86\Release\ResolveAssemblyReference.cache
 C:\Controle\Controle\obj\x86\Release\SalesWindow.baml
 C:\Controle\Controle\obj\x86\Release\ManageMake.baml
 C:\Controle\Controle\obj\x86\Release\ManageProvider.baml
@@ -37,11 +36,11 @@ C:\Controle\Controle\obj\x86\Release\App.g.cs
 C:\Controle\Controle\obj\x86\Release\Controle_MarkupCompile.cache
 C:\Controle\Controle\obj\x86\Release\Controle.g.resources
 C:\Controle\Controle\obj\x86\Release\Controle.Properties.Resources.resources
-C:\Controle\Controle\obj\x86\Release\GenerateResource.read.1.tlog
-C:\Controle\Controle\obj\x86\Release\GenerateResource.write.1.tlog
 C:\Controle\Controle\obj\x86\Release\Controle.exe.manifest
 C:\Controle\Controle\obj\x86\Release\Controle.application
 C:\Controle\Controle\obj\x86\Release\Controle.exe
 C:\Controle\Controle\obj\x86\Release\Controle.pdb
 C:\Controle\Controle\obj\x86\Release\GeneratedInternalTypeHelper.g.cs
 C:\Controle\Controle\obj\x86\Release\Controle_MarkupCompile.lref
+C:\Controle\Controle\obj\x86\Release\Controle.csprojResolveAssemblyReference.cache
+C:\Controle\Controle\obj\x86\Release\Controle.csproj.GenerateResource.Cache
