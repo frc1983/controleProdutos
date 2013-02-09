@@ -1,2 +1,4 @@
-bin/**/*
-obj/**/*
+Controle/bin/**/*
+Controle/obj/**/*
+obj/*
+bin/*
