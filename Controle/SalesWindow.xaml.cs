@@ -19,6 +19,7 @@ using Xceed.Wpf.Toolkit;
 using WPF.MDI;
 using MahApps.Metro.Controls;
 using Controle.ViewModel;
+using Controle.Helpers;
 
 namespace Controle
 {
@@ -54,7 +55,7 @@ namespace Controle
 
 		private void ReadProductCode_Click(object sender, RoutedEventArgs e)
 		{
-			long cod = 2121212121;
+            long cod = 5432543254325543543;
 			findProductByEAN(cod);
 		}
 
@@ -81,7 +82,10 @@ namespace Controle
 					txtQuantity_TextChanged(null, null);
 
 					AdicionaCompra(_produto);
+                    break;
 				}
+                else
+                    ErrorInfo.DisplayErrorMessage("Nenhum produto encontrado.");
 			}
 		}
 
