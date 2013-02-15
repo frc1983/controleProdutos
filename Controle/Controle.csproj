@@ -119,6 +119,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Domain\Address.cs" />
+    <Compile Include="Domain\City.cs" />
+    <Compile Include="Domain\Client.cs" />
+    <Compile Include="Domain\Country.cs" />
+    <Compile Include="Domain\MarriageState.cs" />
+    <Compile Include="Domain\State.cs" />
+    <Compile Include="ManageClient.xaml.cs">
+      <DependentUpon>ManageClient.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\GridViewColumnResize.cs" />
     <Compile Include="SalesWindow.xaml.cs">
       <DependentUpon>SalesWindow.xaml</DependentUpon>
@@ -136,8 +145,14 @@
     <Compile Include="ManageCategory.xaml.cs">
       <DependentUpon>ManageCategory.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\ClientListVM.cs" />
+    <Compile Include="ViewModel\AddressListVM.cs" />
     <Compile Include="ViewModel\ProductListVM.cs" />
     <Compile Include="ViewModel\ManageProductVM.cs" />
+    <Page Include="ManageClient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="SalesWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

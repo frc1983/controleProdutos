@@ -63,6 +63,11 @@ namespace Controle
 			WindowContainer.Children.Add(GenerateChild("Fabricantes"));
 		}
 
+		private void openManagerClient_Click(object sender, RoutedEventArgs e)
+		{
+			WindowContainer.Children.Add(GenerateChild("Clientes"));
+		}
+
 		private MdiChild GenerateChild(string windowName)
 		{
 			UIElement windowContent = null;
@@ -81,6 +86,9 @@ namespace Controle
 					break;
 				case "Fabricantes":
 					windowContent = new ManageMake() { Visibility = Visibility.Visible };
+					break;
+				case "Clientes":
+					windowContent = new ManageClient() { Visibility = Visibility.Visible };
 					break;
 			}
 

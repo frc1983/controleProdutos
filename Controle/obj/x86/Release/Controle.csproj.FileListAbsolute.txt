@@ -45,3 +45,5 @@ C:\Controle\Controle\obj\x86\Release\Controle.exe
 C:\Controle\Controle\obj\x86\Release\Controle.pdb
 C:\Controle\Controle\obj\x86\Release\GeneratedInternalTypeHelper.g.cs
 C:\Controle\Controle\obj\x86\Release\Controle_MarkupCompile.lref
+C:\Controle\Controle\obj\x86\Release\ManageClient.baml
+C:\Controle\Controle\obj\x86\Release\ManageClient.g.cs

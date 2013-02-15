@@ -30,7 +30,8 @@
 				<MenuItem Header="Categorias" Click="openManagerCategory_Click" />
 				<MenuItem Header="Fornecedores"  Click="openManagerProvider_Click" />
 				<MenuItem Header="Fabricantes"  Click="openManagerMake_Click" />
-			</MenuItem>
+				<MenuItem Header="Clientes" Click="openManagerClient_Click" />
+			</MenuItem>			
 			<MenuItem Header="Cadastrar Vendas">
 				<MenuItem Header="Exibir tela de vendas" Click="openSalesWindow_Click" />
 			</MenuItem>
