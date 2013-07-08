@@ -14,13 +14,14 @@ using System.Windows.Shapes;
 using Controle.Domain;
 using Controle.database;
 using Controle.ViewModel;
+using MahApps.Metro.Controls;
 
 namespace Controle
 {
 	/// <summary>
 	/// Interaction logic for ManageProduct.xaml
 	/// </summary>
-	public partial class ManageProduct : UserControl
+	public partial class ManageProduct : MetroWindow
 	{
 		Product _editing = null;
 

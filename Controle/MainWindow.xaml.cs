@@ -45,27 +45,32 @@ namespace Controle
 
 		private void openManager_Click(object sender, RoutedEventArgs e)
 		{
-			WindowContainer.Children.Add(GenerateChild("Produtos"));
+			//WindowContainer.Children.Add(GenerateChild("Produtos"));
+            new ManageProduct().ShowDialog();
 		}
 
 		private void openManagerCategory_Click(object sender, RoutedEventArgs e)
 		{
-			WindowContainer.Children.Add(GenerateChild("Categorias"));
+			//WindowContainer.Children.Add(GenerateChild("Categorias"));
+            new ManageCategory().ShowDialog();
 		}
 
 		private void openManagerProvider_Click(object sender, RoutedEventArgs e)
 		{
-			WindowContainer.Children.Add(GenerateChild("Fornecedores"));
+			//WindowContainer.Children.Add(GenerateChild("Fornecedores"));
+            new ManageProvider().ShowDialog();
 		}
 
 		private void openManagerMake_Click(object sender, RoutedEventArgs e)
 		{
-			WindowContainer.Children.Add(GenerateChild("Fabricantes"));
+			//WindowContainer.Children.Add(GenerateChild("Fabricantes"));
+            new ManageMake().ShowDialog();
 		}
 
 		private void openManagerClient_Click(object sender, RoutedEventArgs e)
 		{
-			WindowContainer.Children.Add(GenerateChild("Clientes"));
+			//WindowContainer.Children.Add(GenerateChild("Clientes"));
+            new ManageClient().ShowDialog();
 		}
 
 		private MdiChild GenerateChild(string windowName)

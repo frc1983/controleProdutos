@@ -55,7 +55,7 @@ namespace Controle
 
 		private void ReadProductCode_Click(object sender, RoutedEventArgs e)
 		{
-            long cod = 5432543254325543543;
+            long cod = 321;
 			findProductByEAN(cod);
 		}
 

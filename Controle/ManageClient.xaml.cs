@@ -14,13 +14,14 @@ using System.Windows.Shapes;
 using Controle.Domain;
 using Controle.database;
 using Controle.ViewModel;
+using MahApps.Metro.Controls;
 
 namespace Controle
 {
 	/// <summary>
 	/// Interaction logic for ManageClient.xaml
 	/// </summary>
-	public partial class ManageClient : UserControl
+    public partial class ManageClient : MetroWindow
 	{
 		Client _editing = null;
 		Address _editingAddress = null;

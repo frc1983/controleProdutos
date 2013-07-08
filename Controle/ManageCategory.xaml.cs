@@ -14,13 +14,14 @@ using System.Windows.Shapes;
 using Controle.Domain;
 using Controle.database;
 using Controle.Helpers;
+using MahApps.Metro.Controls;
 
 namespace Controle
 {
 	/// <summary>
 	/// Interaction logic for ManageCategory.xaml
 	/// </summary>
-	public partial class ManageCategory : UserControl
+    public partial class ManageCategory : MetroWindow
 	{
 		Category _editing = null;
 
